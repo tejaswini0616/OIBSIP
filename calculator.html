@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<head>
+    <title>Calculator</title>
+    <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  align-items: center;
+  font-family: poppins;
+}
+body {
+  --color: #000;
+  --bg-color: #abe2cf;
+  --btn-bg: #abe2cf;
+  --white: #FCEDDA;
+  --gray: #383838;
+  --off: #949494;
+  --hover-color: #e6e6e6;
+  --close: #FCEDDA;
+  --red: #f22;
+  --blue: #004ec2;
+  --border-color: #fafafa;
+  color: var(--color);
+  background: var(--white);
+  z-index: 20;
+}
+
+body.dark {
+  --color: #FCEDDA;
+  --bg-color: #323232;
+  --btn-bg: #3d3d3d;
+  --white: #3b3b3b;
+  --gray: #cfcfcf;
+  --close: #dfdfdf;
+  --hover-color: #494949;
+  --red: #f22;
+  --blue: #fff;
+  --border-color: #2e2e2e;
+  color: var(--color);
+}
+
+.container {
+  height: 430px;
+  width: 320px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin: calc((100vh - 500px) / 2) auto;
+  background:#abe2cf;
+  overflow: hidden !important;
+}
+
+input {
+  width: calc(100% - 20px);
+  margin: 0 10px;
+  text-align: right;
+  border: 0px;
+  background: #ffffff00;
+  color: var(--color);
+}
+
+input.display {
+  height: 45px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  font-size: 2.8rem;
+  font-weight: 600;
+}
+input.display2 {
+  padding: 20px 0px 0px 0px;
+  font-size: 1.4rem;
+}
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0 5px;
+  gap: 0;
+}
+
+.btn {
+  display: flex;
+  height: 46px;
+  margin: 0;
+  width: 24%;
+  margin-top: 3px;
+  background: var(--btn-bg);
+  border: 1px solid var(--border-color);
+  justify-content: space-around;
+  border-radius: 5px;
+  color: var(--color);
+  font-size: 20px;
+}
+
+.btn:hover {
+  background: var(--hover-color);
+}
+
+.btn.num {
+  font-size: 2rem;
+  background: var(--hover-color);
+}
+
+.btn.num:hover {
+  background: var(--btn-bg);
+}
+.eq {
+  background: orange;
+  color: var(--white);
+  width: 60%;
+  margin-right: none;
+  font-size: 20px;
+}
+.eq:hover {
+    background:orange;
+    opacity: 0.5;
+  }      
+</style>
+</head>
+<body>
+    <div class="container">  
+        <form>
+          <input type="text" value=" " disabled class="display2" name="display2">
+          <input type="text" value="0" disabled class="display" name="display">
+          <div class="buttons">
+      
+            <input type="button" name="btn" class="btn" value="%" onclick="display2.value = display.value +'/100'; display.value = display.value / 100">
+      
+            <input type="button" name="btn" class="btn" value="CE" onclick="display.value = '0'">
+      
+            <input type="button" name="btn" class="btn" value="C" onclick="display.value = 0; display2.value = ''">
+      
+            <input type="button" name="btn" class="btn" value="Del" onclick="display.value = display.value.toString().slice(0,-1)">
+      
+            <input type="button" name="btn" class="btn" value="/" onclick="display.value += '/'">
+      
+            <input type="button" name="btn" class="btn num" value="7" onclick="
+                      if (display.value === '0'){
+                          display.value = 7
+                      } else {
+                          display.value += 7;
+                      }">
+            <input type="button" name="btn" class="btn num" value="8" onclick="
+                      if (display.value === '0'){
+                          display.value = 8
+                      } else {
+                          display.value += 8;
+                      }">
+      
+            <input type="button" name="btn" class="btn num" value="9" onclick="
+                      if (display.value === '0'){
+                          display.value = 9
+                      } else {
+                          display.value += 9;
+                      }">
+      
+            <input type="button" name="btn" class="btn" value="*" onclick="display.value += '*'">
+            <input type="button" name="btn" class="btn num" value="4" onclick="
+                      if (display.value === '0'){
+                          display.value = 4
+                      } else {
+                          display.value += 4;
+                      }
+                      ">
+      
+            <input type="button" name="btn" class="btn num" value="5" onclick="
+                      if (display.value === '0'){
+                          display.value = 5
+                      } else {
+                          display.value += 5;
+                      }">
+      
+            <input type="button" name="btn" class="btn num" value="6" onclick="
+                      if (display.value === '0'){
+                          display.value = 6
+                      } else {
+                          display.value += 6;
+                      }">
+      
+            <input type="button" name="btn" class="btn" value="-" onclick="display.value += '-'">
+      
+            <input type="button" name="btn" class="btn num" value="1" onclick="
+                              if (display.value === '0'){
+                          display.value = 1
+                      } else {
+                          display.value += 1;
+                      }">
+      
+            <input type="button" name="btn" class="btn num" value="2" onclick="
+                              if (display.value === '0'){
+                          display.value = 2
+                      } else {
+                          display.value += 2;
+                      }">
+      
+            <input type="button" name="btn" class="btn num" value="3" onclick="if (display.value === '0'){
+                          display.value = 3
+                      } else {
+                          display.value += 3;
+                      }">
+      
+            <input type="button" name="btn" class="btn" value="+" onclick="display.value += '+'">
+      
+            <input type="button" class="btn" value="+/-" onclick=" 
+                          if (display.value.startsWith('-')){
+                              display.value = display.value.toString().slice(1)
+                          } else if(display.value === '0') {
+                              display.value = 0
+                          } else {
+                              display.value ='-' + display.value
+                          }">
+            <input type="button" class="btn num" value="0" onclick="
+                      if (display.value === '0'){
+                          display.value = 0
+                      } else {
+                          display.value += 0;
+                      }
+                      ">
+            <input type="button" name="btn" class="btn" value="." onclick="display.value += '.'">
+      
+            <input type="button" name="btn" class="btn eq" value="=" onclick="display2.value = display.value + '='; display.value = eval(display.value); ">
+      
+          </div>
+      </div>
+      </form>
+      </div>
+</body>
+</html>
